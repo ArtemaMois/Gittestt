@@ -3,3 +3,8 @@ body{
     flex: 40px;
     padding: 40px;
 }
+h2{
+    color: #d5b121;
+    font-size: 22px;
+    text-decoration: underline;
+}
