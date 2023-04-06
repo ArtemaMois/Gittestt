@@ -8,3 +8,6 @@ body{
     font-size: 40px;
     text-decoration: underline;
 }
+p{
+    color: red;
+}
