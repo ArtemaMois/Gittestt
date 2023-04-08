@@ -1,28 +1,23 @@
 import requests
-def Name(b):
+import json
+def Name(a):
+    print("Введите id: ")
+    try:
+        response= requests.get("https://jsonplaceholder.typicode.com/posts/"+a)
+        response_2 = requests.get("https://jsonplaceholder.typicode.com/comments/"+a)
+        print("Post_id: ", response_2.json()['postId'])
+        print("Post_title: ", response.json()['title'])
+        print("Post_body: ", response.json()['body'])
+        print("Com_id: ", response_2.json()['id'])
+        print("User_name: ", response_2.json()['name'])
+        print("User_email: ", response_2.json()['email'])
+        print("Com_body: ", response_2.json()['body'])
+    except:
+        return "Error 404"
+
+while True:
+    print("Введите id: ")
     a = input()
-    if a is not None:
-        response = requests.get("https://jsonplaceholder.typicode.com/posts")
-        print("Post_Id: ",response.json()[b]["userId"])
-        print("Post_title: ", response.json()[b]["title"])
-        print("Post_body: ", response.json()[b]["body"])
-
-
-def Comment(b):
-    a = input()
-    if a is not None:
-        response = requests.get("https://jsonplaceholder.typicode.com/comments")
-        print("Comments_id: ", response.json()[b]["id"])
-        print("Comments_name", response.json()[b]["name"])
-        print("Comments_email", response.json()[b]["email"])
-        print("Comments_body", response.json()[b]["body"])
-
-
-response = requests.get("https://jsonplaceholder.typicode.com/posts")
-for i in range(len(response.json())):
-    Name(i)
-    print("\n", "Comments", "\n")
-    Comment(i)
-
+    Name(a)
 
 
